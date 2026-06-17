@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Elinas Schildkröten-Malspiel</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <main class="spiel">
+      <header>
+        <h1>Elinas Schildkröten-Malspiel</h1>
+        <p>Bewege die Schildkröte mit den Pfeiltasten.</p>
+      </header>
+
+      <section class="buehne" aria-label="Malfeld">
+        <canvas id="malfeld" width="640" height="360"></canvas>
+        <div id="schildkroete" aria-hidden="true">🐢</div>
+      </section>
+
+      <section class="werkzeuge" aria-label="Spielknöpfe">
+        <button id="farbe" type="button">Neue Farbe</button>
+        <button id="neu" type="button">Alles wegwischen</button>
+      </section>
+
+      <section class="pfeile" aria-label="Pfeilsteuerung">
+        <button data-richtung="oben" type="button" aria-label="Nach oben">↑</button>
+        <div>
+          <button data-richtung="links" type="button" aria-label="Nach links">←</button>
+          <button data-richtung="unten" type="button" aria-label="Nach unten">↓</button>
+          <button data-richtung="rechts" type="button" aria-label="Nach rechts">→</button>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

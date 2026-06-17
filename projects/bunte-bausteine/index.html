@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Elinas bunte Bausteine</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header>
+        <h1>Elinas bunte Bausteine</h1>
+        <p>Such dir eine Farbe aus und baue dein eigenes Bild.</p>
+      </header>
+
+      <section class="controls" aria-label="Werkzeuge">
+        <div class="color-area">
+          <h2 class="hidden-title">Farben</h2>
+          <div class="colors" id="colors"></div>
+        </div>
+
+        <div class="buttons">
+          <button id="eraserButton" type="button">Radiergummi</button>
+          <button id="randomButton" type="button">Überraschungsfarbe</button>
+          <button id="clearButton" type="button">Alles löschen</button>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="hidden-title">Spielfeld</h2>
+        <div class="grid" id="grid" aria-label="Baustein-Raster"></div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

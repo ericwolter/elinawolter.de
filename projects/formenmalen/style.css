@@ -1,0 +1,104 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  font-family: Arial, sans-serif;
+  color: #24313f;
+  background: #f5d35f;
+}
+
+.spiel {
+  width: min(94vw, 700px);
+  padding: 20px;
+}
+
+header {
+  margin-bottom: 14px;
+}
+
+h1 {
+  margin: 0 0 6px;
+  font-size: clamp(28px, 6vw, 46px);
+}
+
+p {
+  margin: 0;
+  font-size: 18px;
+}
+
+.buehne {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 5px solid #24313f;
+  border-radius: 8px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 8px 0 #24313f;
+}
+
+canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+#schildkroete {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  font-size: 40px;
+  transform: translate(-50%, -50%);
+  user-select: none;
+}
+
+.werkzeuge,
+.pfeile {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.pfeile {
+  flex-direction: column;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.pfeile div {
+  display: flex;
+  gap: 12px;
+}
+
+button {
+  min-width: 64px;
+  min-height: 52px;
+  border: 3px solid #24313f;
+  border-radius: 8px;
+  color: #24313f;
+  background: #ffffff;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 5px 0 #24313f;
+}
+
+button:active {
+  transform: translateY(4px);
+  box-shadow: 0 1px 0 #24313f;
+}
+
+#farbe,
+#neu {
+  padding: 0 16px;
+}
