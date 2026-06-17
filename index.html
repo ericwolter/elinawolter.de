@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="Elinas Welt: eine kinderfreundliche Startseite für Elinas erste kleine Webprojekte."
+    >
+    <title>Elinas Welt</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="./" aria-label="Elinas Welt Startseite">
+        <span class="brand-mark" aria-hidden="true">E</span>
+        <span>Elinas Welt</span>
+      </a>
+
+      <nav class="top-nav" aria-label="Projekte">
+        <a href="#projekte">Projekte</a>
+        <a href="#starten">Starten</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">Elinas erste Webseite</p>
+          <h1 id="hero-title">Elinas Welt</h1>
+          <p class="hero-text">
+            Kleine Spiele, bunte Ideen und viel Ausprobieren. Hier wohnt Elinas
+            Sammlung aus drei Webprojekten: malen, bauen und knobeln. Alles ist
+            direkt im Browser spielbar.
+          </p>
+          <div class="hero-actions" id="starten">
+            <a class="primary-action" href="#projekte">Projekte ansehen</a>
+            <a class="secondary-action" href="./projects/bunte-bausteine/">Direkt losbauen</a>
+          </div>
+        </div>
+
+        <div class="preview-stack" aria-label="Vorschau der Projekte">
+          <img
+            class="preview preview-one"
+            src="assets/bunte-bausteine-preview.png"
+            alt="Vorschau von Elinas bunte Bausteine"
+          >
+          <img
+            class="preview preview-two"
+            src="assets/mastermind-preview.png"
+            alt="Vorschau von Elinas Mastermind"
+          >
+          <img
+            class="preview preview-three"
+            src="assets/formenmalen-preview.png"
+            alt="Vorschau von Elinas Schildkröten-Malspiel"
+          >
+        </div>
+      </section>
+
+      <section class="intro-band" aria-label="Willkommen">
+        <p>
+          Eine Startseite für Elina, 6 Jahre alt, und für alle, die ihre
+          kleinen Browserprojekte ausprobieren möchten.
+        </p>
+      </section>
+
+      <section class="projects" id="projekte" aria-labelledby="projects-title">
+        <div class="section-heading">
+          <p class="eyebrow">Drei Projekte</p>
+          <h2 id="projects-title">Was möchtest du öffnen?</h2>
+        </div>
+
+        <div class="project-grid">
+          <article class="project-card">
+            <a class="project-image-link" href="./projects/formenmalen/" aria-label="Formenmalen öffnen">
+              <img
+                src="assets/formenmalen-preview.png"
+                alt="Malfeld mit Schildkröte und bunten Punkten"
+              >
+            </a>
+            <div class="project-content">
+              <p class="project-kicker">Malen</p>
+              <h3>Formenmalen</h3>
+              <p>
+                Eine kleine Schildkröte läuft über das Blatt und hinterlässt
+                bunte Punkte. Perfekt zum Probieren mit Pfeiltasten.
+              </p>
+              <a class="project-link" href="./projects/formenmalen/">
+                Öffnen <span aria-hidden="true">-></span>
+              </a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <a class="project-image-link" href="./projects/bunte-bausteine/" aria-label="Elinas bunte Bausteine öffnen">
+              <img
+                src="assets/bunte-bausteine-preview.png"
+                alt="Raster aus Bausteinen mit Farbwerkzeugen"
+              >
+            </a>
+            <div class="project-content">
+              <p class="project-kicker">Bauen</p>
+              <h3>Elinas bunte Bausteine</h3>
+              <p>
+                Ein Raster voller Bausteine, Farben und Ideen. Feld für Feld
+                entsteht ein eigenes kleines Bild.
+              </p>
+              <a class="project-link" href="./projects/bunte-bausteine/">
+                Öffnen <span aria-hidden="true">-></span>
+              </a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <a class="project-image-link" href="./projects/mastermind/" aria-label="Elinas Mastermind öffnen">
+              <img
+                src="assets/mastermind-preview.png"
+                alt="Mastermind Spielbrett mit Farbauswahl"
+              >
+            </a>
+            <div class="project-content">
+              <p class="project-kicker">Knobeln</p>
+              <h3>Elinas Mastermind</h3>
+              <p>
+                Finde den geheimen Farbcode. Runde für Runde helfen kleine
+                Hinweise beim Knacken des Musters.
+              </p>
+              <a class="project-link" href="./projects/mastermind/">
+                Öffnen <span aria-hidden="true">-></span>
+              </a>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Gemacht für Elina und ihre ersten Webideen.</p>
+    </footer>
+  </body>
+</html>
