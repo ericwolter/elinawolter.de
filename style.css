@@ -1,14 +1,14 @@
 :root {
   color-scheme: light;
-  --ink: #263241;
+  --ink: #253047;
   --muted: #637083;
-  --paper: #fffdf4;
+  --paper: #fff7d6;
   --sun: #ffe66d;
   --sky: #8bd3dd;
-  --rose: #ff6f91;
-  --leaf: #6bd47f;
+  --rose: #d93662;
+  --leaf: #69db7c;
   --blue: #4dabf7;
-  --line: #263241;
+  --line: #253047;
   --shadow: 0 10px 0 var(--line);
 }
 
@@ -25,10 +25,7 @@ body {
   min-height: 100vh;
   font-family: Arial, Helvetica, sans-serif;
   color: var(--ink);
-  background:
-    linear-gradient(135deg, rgba(255, 230, 109, 0.32), transparent 32rem),
-    linear-gradient(315deg, rgba(139, 211, 221, 0.4), transparent 30rem),
-    var(--paper);
+  background: var(--paper);
 }
 
 img {
@@ -50,7 +47,7 @@ a {
   gap: 16px;
   padding: 14px clamp(16px, 4vw, 44px);
   border-bottom: 3px solid var(--line);
-  background: rgba(255, 253, 244, 0.94);
+  background: rgb(255 247 214 / 0.94);
   backdrop-filter: blur(10px);
 }
 
@@ -120,7 +117,7 @@ a {
 .eyebrow,
 .project-kicker {
   margin: 0 0 10px;
-  color: #b11f4a;
+  color: var(--rose);
   font-size: 0.82rem;
   font-weight: 900;
   letter-spacing: 0;
@@ -200,12 +197,15 @@ h1 {
 }
 
 .preview-one {
+  z-index: 1;
   top: 6%;
   right: 0;
+  opacity: 0.76;
   transform: rotate(2deg);
 }
 
 .preview-two {
+  z-index: 2;
   top: 31%;
   left: 0;
   width: min(64%, 460px);
@@ -213,6 +213,7 @@ h1 {
 }
 
 .preview-three {
+  z-index: 3;
   right: 7%;
   bottom: 3%;
   width: min(58%, 420px);

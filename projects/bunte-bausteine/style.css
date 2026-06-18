@@ -42,14 +42,15 @@ p {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 12px 16px;
   margin-bottom: 14px;
   padding: 6px 4px 8px;
 }
 
 .colors {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 8px;
 }
 
@@ -109,7 +110,8 @@ button:active {
 .buttons {
   display: flex;
   flex: 0 0 auto;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 8px;
 }
 
@@ -155,6 +157,11 @@ button:active {
   .controls {
     flex-wrap: nowrap;
   }
+
+  .colors,
+  .buttons {
+    flex-wrap: nowrap;
+  }
 }
 
 @media (max-width: 520px) {
@@ -162,19 +169,24 @@ button:active {
     width: min(100% - 20px, 900px);
   }
 
+  .color-area,
+  .buttons {
+    width: 100%;
+  }
+
   p {
     font-size: 1rem;
   }
 
   button {
-    min-height: 40px;
-    padding: 7px 10px;
+    min-height: 44px;
+    padding: 8px 10px;
     font-size: 0.95rem;
   }
 
   .color-button {
-    width: 42px;
-    height: 42px;
+    width: 44px;
+    height: 44px;
     padding: 5px;
   }
 
@@ -184,12 +196,19 @@ button:active {
   }
 
   .grid {
-    gap: 4px;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 5px;
     padding: 6px;
   }
 
   .field {
     border-width: 2px;
     border-radius: 7px;
+  }
+}
+
+@media (max-width: 420px) {
+  .grid {
+    grid-template-columns: repeat(6, 1fr);
   }
 }

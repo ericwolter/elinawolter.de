@@ -24,6 +24,14 @@ let secretCode = [];
 let currentRow = 0;
 let gameIsRunning = false;
 
+function colorName(value) {
+  const color = colors.find(function (item) {
+    return item.value === value;
+  });
+
+  return color ? color.name : "Farbe";
+}
+
 function createColorButtons() {
   colors.forEach(function (color) {
     const button = document.createElement("button");
@@ -93,6 +101,7 @@ function createBoard() {
     for (let i = 0; i < codeLength; i++) {
       const pin = document.createElement("span");
       pin.className = "pin";
+      pin.setAttribute("aria-label", "Kein Hinweis");
       feedback.append(pin);
     }
 
@@ -118,7 +127,7 @@ function setFieldColor(field) {
 
   field.style.backgroundColor = currentColor;
   field.dataset.color = currentColor;
-  field.setAttribute("aria-label", "Ausgewählte Farbe");
+  field.setAttribute("aria-label", "Feld mit " + colorName(currentColor));
 }
 
 function startNewGame() {
@@ -130,7 +139,7 @@ function startNewGame() {
   clearBoard();
   setLockedRows();
   updateButtons();
-  statusBox.textContent = "Der geheime Code ist bereit.";
+  statusBox.textContent = "Wähle Farben und fülle die erste Reihe.";
 }
 
 function chooseSecretCode() {
@@ -178,7 +187,7 @@ function clearCurrentRow() {
     field.setAttribute("aria-label", "Leeres Feld");
   });
 
-  statusBox.textContent = "Die aktuelle Reihe ist wieder leer.";
+  statusBox.textContent = "Die Reihe ist leer. Fülle wieder vier Felder.";
 }
 
 function checkGuess() {
@@ -193,12 +202,12 @@ function checkGuess() {
   });
 
   if (guess.some(function (color) { return !color; })) {
-    statusBox.textContent = "Fülle erst alle vier Felder.";
+    statusBox.textContent = "Fülle alle vier Felder in der aktuellen Reihe.";
     return;
   }
 
   if (new Set(guess).size !== codeLength) {
-    statusBox.textContent = "Nimm vier unterschiedliche Farben.";
+    statusBox.textContent = "Nimm vier unterschiedliche Farben für die Reihe.";
     return;
   }
 
@@ -217,9 +226,10 @@ function checkGuess() {
   } else {
     currentRow += 1;
     setLockedRows();
-    statusBox.textContent = "Weiter geht's mit der nächsten Reihe.";
+    statusBox.textContent = "Nächste Reihe: Wähle Farben und fülle vier Felder.";
   }
 
+  setLockedRows();
   updateButtons();
 }
 
@@ -259,9 +269,16 @@ function showFeedback(result) {
 
   pins.forEach(function (pin, index) {
     pin.className = "pin";
+    pin.setAttribute("aria-label", "Kein Hinweis");
 
     if (pinColors[index]) {
       pin.classList.add(pinColors[index]);
+      pin.setAttribute(
+        "aria-label",
+        pinColors[index] === "black"
+          ? "Richtige Farbe am richtigen Platz"
+          : "Richtige Farbe an anderer Stelle"
+      );
     }
   });
 }
@@ -274,6 +291,14 @@ function lockCurrentRow() {
 
 function setLockedRows() {
   const fields = document.querySelectorAll(".field");
+  const rows = document.querySelectorAll(".guess-row");
+
+  rows.forEach(function (row) {
+    row.classList.toggle(
+      "current",
+      gameIsRunning && Number(row.dataset.row) === currentRow
+    );
+  });
 
   fields.forEach(function (field) {
     const isCurrentRow = Number(field.dataset.row) === currentRow;
@@ -289,7 +314,7 @@ function revealSecretCode() {
     hole.textContent = "";
     hole.style.backgroundColor = secretCode[index];
     hole.classList.add("solved");
-    hole.setAttribute("aria-label", "Aufgedeckte geheime Farbe");
+    hole.setAttribute("aria-label", "Aufgedeckte Farbe: " + colorName(secretCode[index]));
   });
 }
 

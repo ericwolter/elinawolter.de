@@ -8,7 +8,7 @@
       content="Elinas Welt: eine kinderfreundliche Startseite für Elinas erste kleine Webprojekte."
     >
     <title>Elinas Welt</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=20260618">
   </head>
   <body>
     <header class="site-header">
@@ -30,7 +30,7 @@
           <h1 id="hero-title">Elinas Welt</h1>
           <p class="hero-text">
             Kleine Spiele, bunte Ideen und viel Ausprobieren. Hier wohnt Elinas
-            Sammlung aus drei Webprojekten: malen, bauen und knobeln. Alles ist
+            Sammlung aus drei Webprojekten: bauen, knobeln und malen. Alles ist
             direkt im Browser spielbar.
           </p>
           <div class="hero-actions" id="starten">
@@ -42,18 +42,18 @@
         <div class="preview-stack" aria-label="Vorschau der Projekte">
           <img
             class="preview preview-one"
+            src="assets/formenmalen-preview.png"
+            alt="Vorschau von Elinas Schildkröten-Malspiel"
+          >
+          <img
+            class="preview preview-two"
             src="assets/bunte-bausteine-preview.png"
             alt="Vorschau von Elinas bunte Bausteine"
           >
           <img
-            class="preview preview-two"
+            class="preview preview-three"
             src="assets/mastermind-preview.png"
             alt="Vorschau von Elinas Mastermind"
-          >
-          <img
-            class="preview preview-three"
-            src="assets/formenmalen-preview.png"
-            alt="Vorschau von Elinas Schildkröten-Malspiel"
           >
         </div>
       </section>
@@ -72,26 +72,6 @@
         </div>
 
         <div class="project-grid">
-          <article class="project-card">
-            <a class="project-image-link" href="./projects/formenmalen/" aria-label="Formenmalen öffnen">
-              <img
-                src="assets/formenmalen-preview.png"
-                alt="Malfeld mit Schildkröte und bunten Punkten"
-              >
-            </a>
-            <div class="project-content">
-              <p class="project-kicker">Malen</p>
-              <h3>Formenmalen</h3>
-              <p>
-                Eine kleine Schildkröte läuft über das Blatt und hinterlässt
-                bunte Punkte. Perfekt zum Probieren mit Pfeiltasten.
-              </p>
-              <a class="project-link" href="./projects/formenmalen/">
-                Öffnen <span aria-hidden="true">-></span>
-              </a>
-            </div>
-          </article>
-
           <article class="project-card">
             <a class="project-image-link" href="./projects/bunte-bausteine/" aria-label="Elinas bunte Bausteine öffnen">
               <img
@@ -127,6 +107,26 @@
                 Hinweise beim Knacken des Musters.
               </p>
               <a class="project-link" href="./projects/mastermind/">
+                Öffnen <span aria-hidden="true">-></span>
+              </a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <a class="project-image-link" href="./projects/formenmalen/" aria-label="Formenmalen öffnen">
+              <img
+                src="assets/formenmalen-preview.png"
+                alt="Malfeld mit Schildkröte und bunten Punkten"
+              >
+            </a>
+            <div class="project-content">
+              <p class="project-kicker">Malen</p>
+              <h3>Formenmalen</h3>
+              <p>
+                Das frühere Schildkröten-Malspiel: eine kleine Schildkröte
+                läuft über das Blatt und hinterlässt bunte Punkte.
+              </p>
+              <a class="project-link" href="./projects/formenmalen/">
                 Öffnen <span aria-hidden="true">-></span>
               </a>
             </div>

@@ -84,6 +84,21 @@ p {
   box-shadow: 0 4px 0 #253047;
 }
 
+.feedback-legend {
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto 12px;
+  border: 3px solid #253047;
+  border-radius: 14px;
+  padding: 7px 12px;
+  background: white;
+  font-size: 0.98rem;
+  font-weight: 700;
+  line-height: 1.25;
+  text-align: center;
+  box-shadow: 0 4px 0 #253047;
+}
+
 .controls {
   display: flex;
   align-items: center;
@@ -123,7 +138,8 @@ button:active {
 }
 
 button:disabled {
-  opacity: 0.55;
+  opacity: 1;
+  color: rgb(37 48 71 / 0.55);
   cursor: not-allowed;
 }
 
@@ -195,6 +211,15 @@ button:disabled {
   align-items: center;
 }
 
+.guess-row.current .field {
+  outline: 4px solid #31c4ff;
+  outline-offset: 1px;
+}
+
+.guess-row.current .feedback {
+  box-shadow: 0 0 0 3px #31c4ff;
+}
+
 .field {
   min-width: 0;
   min-height: 0;
@@ -263,14 +288,14 @@ button:disabled {
   }
 
   button {
-    min-height: 40px;
+    min-height: 44px;
     padding: 7px 10px;
     font-size: 0.95rem;
   }
 
   .color-button {
-    width: 42px;
-    height: 42px;
+    width: 44px;
+    height: 44px;
     padding: 5px;
   }
 
@@ -287,6 +312,11 @@ button:disabled {
   .status {
     width: 100%;
     font-size: 0.95rem;
+  }
+
+  .feedback-legend {
+    width: 100%;
+    font-size: 0.9rem;
   }
 
   .buttons {
