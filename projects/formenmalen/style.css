@@ -5,41 +5,52 @@
 body {
   margin: 0;
   min-height: 100vh;
-  display: flex;
-  justify-content: center;
   font-family: Arial, sans-serif;
-  color: #24313f;
-  background: #f5d35f;
+  color: #253047;
+  background: #fff7d6;
 }
 
-.spiel {
-  width: min(94vw, 700px);
-  padding: 20px;
+.app {
+  width: min(100% - 32px, 760px);
+  margin: 0 auto;
+  padding: 18px 0;
 }
 
 header {
+  text-align: center;
   margin-bottom: 14px;
 }
 
 h1 {
-  margin: 0 0 6px;
-  font-size: clamp(28px, 6vw, 46px);
+  margin: 0 0 4px;
+  color: #d93662;
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  line-height: 1.1;
 }
 
 p {
   margin: 0;
-  font-size: 18px;
+  font-size: 1.2rem;
 }
 
 .buehne {
+  width: min(100%, 620px);
+  margin: 0 auto;
+  border: 4px solid #253047;
+  border-radius: 18px;
+  padding: 10px;
+  background: #8bd3dd;
+}
+
+.malfeld-rahmen {
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 9;
-  border: 5px solid #24313f;
-  border-radius: 8px;
   overflow: hidden;
+  border: 3px solid #253047;
+  border-radius: 10px;
   background: white;
-  box-shadow: 0 8px 0 #24313f;
+  box-shadow: inset 0 -5px 0 rgba(0, 0, 0, 0.12);
 }
 
 canvas {
@@ -61,44 +72,124 @@ canvas {
   user-select: none;
 }
 
+.status {
+  width: fit-content;
+  max-width: 100%;
+  min-height: 44px;
+  margin: 14px auto 0;
+  border: 3px solid #253047;
+  border-radius: 14px;
+  padding: 8px 12px;
+  background: white;
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.25;
+  text-align: center;
+  box-shadow: 0 4px 0 #253047;
+}
+
 .werkzeuge,
 .pfeile {
   display: flex;
   justify-content: center;
   gap: 12px;
-  margin-top: 18px;
+  margin-top: 14px;
 }
 
 .pfeile {
   flex-direction: column;
   align-items: center;
-  margin-top: 12px;
+  margin-top: 10px;
 }
 
 .pfeile div {
   display: flex;
-  gap: 12px;
+  gap: 10px;
 }
 
 button {
-  min-width: 64px;
-  min-height: 52px;
-  border: 3px solid #24313f;
-  border-radius: 8px;
-  color: #24313f;
+  min-width: 56px;
+  min-height: 44px;
+  border: 3px solid #253047;
+  border-radius: 14px;
+  padding: 8px 12px;
+  color: #253047;
   background: #ffffff;
-  font-size: 20px;
+  font: inherit;
   font-weight: 700;
   cursor: pointer;
-  box-shadow: 0 5px 0 #24313f;
+  box-shadow: 0 4px 0 #253047;
+}
+
+button:hover {
+  filter: brightness(1.04);
+}
+
+button:focus-visible {
+  outline: 4px solid #31c4ff;
+  outline-offset: 2px;
 }
 
 button:active {
-  transform: translateY(4px);
-  box-shadow: 0 1px 0 #24313f;
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 #253047;
 }
 
-#farbe,
+#farbe {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffe66d;
+}
+
+#farbpunkt {
+  width: 24px;
+  height: 24px;
+  border: 2px solid #253047;
+  border-radius: 50%;
+  background: #ff4d6d;
+}
+
 #neu {
-  padding: 0 16px;
+  background: #ff9aa2;
+}
+
+.pfeile button {
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  font-size: 1.35rem;
+}
+
+@media (max-width: 520px) {
+  .app {
+    width: min(100% - 20px, 760px);
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  .buehne {
+    padding: 6px;
+  }
+
+  .status {
+    width: 100%;
+    font-size: 0.95rem;
+  }
+
+  .werkzeuge {
+    flex-wrap: wrap;
+  }
+
+  .werkzeuge button {
+    min-height: 44px;
+  }
+
+  #farbe,
+  #neu {
+    flex: 1 1 170px;
+    justify-content: center;
+  }
 }

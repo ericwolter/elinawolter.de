@@ -2,16 +2,34 @@ const malfeld = document.querySelector("#malfeld");
 const stift = malfeld.getContext("2d");
 const schildkroete = document.querySelector("#schildkroete");
 const farbeKnopf = document.querySelector("#farbe");
+const farbpunkt = document.querySelector("#farbpunkt");
 const neuKnopf = document.querySelector("#neu");
+const statusBox = document.querySelector("#status");
 
-const farben = ["#e83f6f", "#2ec4b6", "#ff9f1c", "#3a86ff", "#8ac926"];
+const farben = [
+  { name: "Rot", value: "#ff4d6d" },
+  { name: "Orange", value: "#ffa94d" },
+  { name: "Gelb", value: "#ffe66d" },
+  { name: "Grün", value: "#69db7c" },
+  { name: "Blau", value: "#4dabf7" },
+  { name: "Lila", value: "#b197fc" },
+];
 
 let x = malfeld.width / 2;
 let y = malfeld.height / 2;
 let farbeNummer = 0;
 
 function aktuelleFarbe() {
-  return farben[farbeNummer];
+  return farben[farbeNummer].value;
+}
+
+function aktuellerFarbname() {
+  return farben[farbeNummer].name;
+}
+
+function zeigeFarbe() {
+  farbpunkt.style.backgroundColor = aktuelleFarbe();
+  farbeKnopf.setAttribute("aria-label", "Farbe wechseln. Aktuell: " + aktuellerFarbname());
 }
 
 function malePunkt() {
@@ -43,6 +61,7 @@ function gehe(richtung) {
 
   malePunkt();
   zeigeSchildkroete();
+  statusBox.textContent = "Gemalt mit " + aktuellerFarbname() + ".";
 }
 
 function neueFarbe() {
@@ -51,18 +70,37 @@ function neueFarbe() {
   if (farbeNummer >= farben.length) {
     farbeNummer = 0;
   }
+
+  zeigeFarbe();
+  statusBox.textContent = "Neue Farbe: " + aktuellerFarbname() + ".";
 }
 
 function allesWegwischen() {
   stift.clearRect(0, 0, malfeld.width, malfeld.height);
   malePunkt();
+  statusBox.textContent = "Das Blatt ist wieder frei.";
 }
 
 document.addEventListener("keydown", function (ereignis) {
-  if (ereignis.key === "ArrowLeft") gehe("links");
-  if (ereignis.key === "ArrowRight") gehe("rechts");
-  if (ereignis.key === "ArrowUp") gehe("oben");
-  if (ereignis.key === "ArrowDown") gehe("unten");
+  if (ereignis.key === "ArrowLeft") {
+    ereignis.preventDefault();
+    gehe("links");
+  }
+
+  if (ereignis.key === "ArrowRight") {
+    ereignis.preventDefault();
+    gehe("rechts");
+  }
+
+  if (ereignis.key === "ArrowUp") {
+    ereignis.preventDefault();
+    gehe("oben");
+  }
+
+  if (ereignis.key === "ArrowDown") {
+    ereignis.preventDefault();
+    gehe("unten");
+  }
 });
 
 document.querySelectorAll("[data-richtung]").forEach(function (knopf) {
@@ -74,5 +112,6 @@ document.querySelectorAll("[data-richtung]").forEach(function (knopf) {
 farbeKnopf.addEventListener("click", neueFarbe);
 neuKnopf.addEventListener("click", allesWegwischen);
 
+zeigeFarbe();
 malePunkt();
 zeigeSchildkroete();

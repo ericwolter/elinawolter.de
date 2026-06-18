@@ -4,22 +4,31 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Elinas Schildkröten-Malspiel</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=20260619b">
   </head>
   <body>
-    <main class="spiel">
+    <main class="app">
       <header>
         <h1>Elinas Schildkröten-Malspiel</h1>
-        <p>Bewege die Schildkröte mit den Pfeiltasten.</p>
+        <p>Male bunte Spuren mit der Schildkröte.</p>
       </header>
 
       <section class="buehne" aria-label="Malfeld">
-        <canvas id="malfeld" width="640" height="360"></canvas>
-        <div id="schildkroete" aria-hidden="true">🐢</div>
+        <div class="malfeld-rahmen">
+          <canvas id="malfeld" width="640" height="360"></canvas>
+          <div id="schildkroete" aria-hidden="true">🐢</div>
+        </div>
       </section>
 
-      <section class="werkzeuge" aria-label="Spielknöpfe">
-        <button id="farbe" type="button">Neue Farbe</button>
+      <p class="status" id="status" role="status" aria-live="polite">
+        Bewege die Schildkröte mit den Pfeiltasten oder den Knöpfen.
+      </p>
+
+      <section class="werkzeuge" aria-label="Werkzeuge">
+        <button id="farbe" type="button">
+          <span id="farbpunkt" aria-hidden="true"></span>
+          Farbe wechseln
+        </button>
         <button id="neu" type="button">Alles wegwischen</button>
       </section>
 
@@ -33,6 +42,6 @@
       </section>
     </main>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=20260619b"></script>
   </body>
 </html>
