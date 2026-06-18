@@ -8,6 +8,7 @@ body {
   font-family: Arial, sans-serif;
   color: #253047;
   background: #fff7d6;
+  touch-action: manipulation;
 }
 
 .app {
@@ -119,6 +120,9 @@ button {
   font-weight: 700;
   cursor: pointer;
   box-shadow: 0 4px 0 #253047;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 button:hover {

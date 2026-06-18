@@ -31,6 +31,7 @@ body {
 img {
   display: block;
   max-width: 100%;
+  height: auto;
 }
 
 a {
@@ -190,9 +191,11 @@ h1 {
 .preview {
   position: absolute;
   width: min(72%, 520px);
+  aspect-ratio: 16 / 9;
   border: 4px solid var(--line);
   border-radius: 8px;
   background: white;
+  object-fit: cover;
   box-shadow: var(--shadow);
 }
 
@@ -269,10 +272,10 @@ h2 {
 
 .project-image-link {
   display: block;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
   border-bottom: 4px solid var(--line);
-  background: #edf7fb;
+  background: var(--paper);
 }
 
 .project-image-link img {
@@ -334,15 +337,11 @@ h2 {
   }
 
   .project-card {
-    display: grid;
-    grid-template-columns: minmax(220px, 0.9fr) 1fr;
+    display: block;
   }
 
   .project-image-link {
-    height: 100%;
-    min-height: 260px;
-    border-right: 4px solid var(--line);
-    border-bottom: 0;
+    min-height: 0;
   }
 }
 
@@ -384,13 +383,7 @@ h2 {
     width: min(100% - 24px, 1120px);
   }
 
-  .project-card {
-    display: block;
-  }
-
   .project-image-link {
-    min-height: 0;
-    border-right: 0;
     border-bottom: 4px solid var(--line);
   }
 

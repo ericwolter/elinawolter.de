@@ -15,8 +15,17 @@ const farben = [
   { name: "Lila", value: "#b197fc" },
 ];
 
-let x = malfeld.width / 2;
-let y = malfeld.height / 2;
+const schritt = 24;
+const rand = 24;
+const startX = malfeld.width / 2;
+const startY = malfeld.height / 2;
+const minX = startX - Math.floor((startX - rand) / schritt) * schritt;
+const maxX = startX + Math.floor((malfeld.width - rand - startX) / schritt) * schritt;
+const minY = startY - Math.floor((startY - rand) / schritt) * schritt;
+const maxY = startY + Math.floor((malfeld.height - rand - startY) / schritt) * schritt;
+
+let x = startX;
+let y = startY;
 let farbeNummer = 0;
 
 function aktuelleFarbe() {
@@ -48,16 +57,14 @@ function zeigeSchildkroete() {
 }
 
 function gehe(richtung) {
-  const schritt = 24;
-
   if (richtung === "links") x = x - schritt;
   if (richtung === "rechts") x = x + schritt;
   if (richtung === "oben") y = y - schritt;
   if (richtung === "unten") y = y + schritt;
 
-  // Die Schildkröte bleibt im Bild.
-  x = Math.max(20, Math.min(malfeld.width - 20, x));
-  y = Math.max(20, Math.min(malfeld.height - 20, y));
+  // Die Schildkröte bleibt auf ihrem 24px-Raster.
+  x = Math.max(minX, Math.min(maxX, x));
+  y = Math.max(minY, Math.min(maxY, y));
 
   malePunkt();
   zeigeSchildkroete();
@@ -104,9 +111,16 @@ document.addEventListener("keydown", function (ereignis) {
 });
 
 document.querySelectorAll("[data-richtung]").forEach(function (knopf) {
-  knopf.addEventListener("click", function () {
+  function bewegeSchildkroete() {
     gehe(knopf.dataset.richtung);
+  }
+
+  knopf.addEventListener("touchend", function (ereignis) {
+    ereignis.preventDefault();
+    bewegeSchildkroete();
   });
+
+  knopf.addEventListener("click", bewegeSchildkroete);
 });
 
 farbeKnopf.addEventListener("click", neueFarbe);
