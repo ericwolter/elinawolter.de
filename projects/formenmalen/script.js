@@ -16,7 +16,7 @@ const farben = [
 ];
 
 const schritt = 24;
-const rand = 24;
+const rand = schritt * 1.5;
 const startX = malfeld.width / 2;
 const startY = malfeld.height / 2;
 const minX = startX - Math.floor((startX - rand) / schritt) * schritt;
